@@ -1,0 +1,43 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-background: hsl(0 0% 5%);
+  --color-foreground: hsl(0 0% 98%);
+  --color-primary: hsl(0 0% 100%);
+  
+  --font-sans: 'Inter', sans-serif;
+  --font-display: 'Archivo Black', sans-serif;
+}
+
+@layer base {
+  body {
+    @apply bg-black text-white overflow-x-hidden antialiased;
+  }
+}
+
+.perspective-1000 {
+  perspective: 1000px;
+}
+
+.preserve-3d {
+  transform-style: preserve-3d;
+}
+
+.backface-hidden {
+  backface-visibility: hidden;
+}
+
+/* Pixel dissolve effect */
+.pixel-dissolve {
+  mask-image: linear-gradient(to bottom, transparent 25%, black 50%, transparent 75%);
+  mask-size: 8px 8px;
+  animation: dissolve 2s infinite linear;
+}
+
+@keyframes dissolve {
+  0% { mask-position: 0 0; }
+  100% { mask-position: 32px 32px; }
+}
